@@ -1,0 +1,10 @@
+
+{% if article_list %}
+    <ul>
+    {% for article in article_list %}
+        <li><a href="/news/{{ article.id }}/">{{ article.title_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No news available.</p>
+{% endif %}
