@@ -71,6 +71,7 @@ def get_generated_text():
                 tt = text_generate_output[len(o.body_text_insp):]
                 o.body_text = find_next_sentence(tt)
                 o.title_text = get_title_text(o.body_text)
+                o.publish = True
                 o.save()
                 logger.info("Article id= %d populated with generated text",o.id)
                 return
@@ -108,8 +109,8 @@ def get_convos():
         
 
 def start():
-    #get_convos()
-    #get_generated_text()
+    get_convos()
+    get_generated_text()
     scheduler = BackgroundScheduler()
     logger.info("Adding job: get_convos...")
     scheduler.add_job(get_convos, 'interval', hours=2)

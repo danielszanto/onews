@@ -18,7 +18,8 @@ class Article(models.Model):
     pub_date = models.DateTimeField('date published',auto_now_add=True)
     article_image = models.ImageField(upload_to=article_image_path, blank=True, null=True)
     title_text_insp = models.CharField(max_length=200,blank=True,null=True)
-    body_text_insp = models.CharField(max_length=10000,blank=True,null=True)    
+    body_text_insp = models.CharField(max_length=10000,blank=True,null=True)
+    publish = models.BooleanField(default=False)
     def __str__(self):
         return self.title_text
     def has_title_and_body(self):
